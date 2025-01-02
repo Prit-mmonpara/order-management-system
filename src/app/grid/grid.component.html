@@ -5,14 +5,16 @@
     <select id="criteria" [(ngModel)]="searchCriteria">
       <option value="orderId">Order ID</option>
       <option value="customerId">Customer ID</option>
-      <option value="status">Status</option>
+      <option value="productId">Product ID</option>
+      <option value="price">Price</option>
+      <option value="name">Name</option>
     </select>
     
     <input type="text" [(ngModel)]="searchText" placeholder="Enter search text">
-    <button (click)="onSearch()">Search</button>
+    <button>Search</button>
   </div>
   
-  <div *ngIf="products">
+  <div *ngIf="searchCriteria === 'orderId'">
     <h3>Search Results</h3>
     <table>
       <thead>
@@ -21,7 +23,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let row of searchResults">
+        <tr *ngFor="let row of orders | search : searchCriteria : searchText">
           <td>{{ row.orderId }}</td>
           <td>{{ row.customerId }}</td>
           <td>{{ row.status }}</td>
@@ -30,7 +32,78 @@
     </table>
   </div>
   
-  <div *ngIf="searchResults.length === 0 && searchText !== ''">
+  <!-- <div *ngIf="searchResults.length === 0 && searchText !== ''">
     <p>No results found for the given search criteria.</p>
   </div>
-  
+   -->
+   <div *ngIf="searchCriteria === 'customerId'">
+    <h3>Search Results</h3>
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let column of columns2">{{ column }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of customers | search : searchCriteria : searchText">
+          <td>{{ row.customerId }}</td>
+          <td>{{ row.name }}</td>
+          <td>{{ row.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="searchCriteria === 'productId'">
+    <h3>Search Results</h3>
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let column of columns3">{{ column }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of products | search : searchCriteria : searchText">
+          <td>{{ row.productId }}</td>
+          <td>{{ row.name }}</td>
+          <td>{{ row.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="searchCriteria === 'price'">
+    <h3>Search Results</h3>
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let column of columns3">{{ column }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of products | search : searchCriteria : searchText">
+          <td>{{ row.productId }}</td>
+          <td>{{ row.name }}</td>
+          <td>{{ row.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="searchCriteria === 'name'">
+    <h3>Search Results</h3>
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let column of columns3">{{ column }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of products | search : searchCriteria : searchText">
+          <td>{{ row.productId }}</td>
+          <td>{{ row.name }}</td>
+          <td>{{ row.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

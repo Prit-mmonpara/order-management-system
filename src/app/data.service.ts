@@ -14,7 +14,7 @@ interface OrderProduct {
 
 interface Order {
   orderId: number;
-  customerId: number;
+  customerId: number; 
   products: OrderProduct[];
   status: string;
 }
@@ -36,7 +36,7 @@ interface Data {
 })
 
 export class DataService {
-  private data: Data = {
+    data: Data = {
     orders: [
       {
         orderId: 101,

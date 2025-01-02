@@ -13,19 +13,25 @@ import { SearchPipe } from '../search.pipe';
 })
 
 export class GridComponent {
+  data: any;
+  constructor(private dataService: DataService) {}
+  
+  orders: any[] = [];
+  customers: any[] = [];
+  products: any[] = [];
+
+  ngOnInit() {
+    this.data = this.dataService.data;
+    this.orders = this.data.orders;
+    this.customers = this.data.customers;
+    this.products = this.data.products;
+  }
+
   searchCriteria: string = 'customerId'; 
   searchText: string = ''; 
   searchResults: any[] = []; 
-  columns: string[] = ['orderId', 'customerId', 'status']; 
+  columns: string[] = ['orderId', 'customerId', 'status'];
+  columns2: string[] = ['customerId', 'name', 'email'];
+  columns3: string[] = ['productId', 'name', 'price']; 
   searchPipe: any;
-  constructor(private dataService: DataService) { } 
-  
-  orders!: any[];
-  customers!: any[];
-  products!: any[];
-
-  onSearch() { 
-    //this.searchResults = this.dataService.getOrders().filter(order => order[this.searchCriteria].toString().toLowerCase().includes(this.searchText.toLowerCase()) ); 
-      this.customers = this.searchPipe.transform(this.searchCriteria, this.searchText)
-  }
 }
