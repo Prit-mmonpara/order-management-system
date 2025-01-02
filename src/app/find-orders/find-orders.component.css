@@ -1,58 +1,160 @@
-/* Add your component-specific styles here */
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Container for the Form */
 div {
-  font-family: Arial, sans-serif;
-  margin: 20px;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-h2, h3, label, p {
-  color: #333;
+div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
 }
 
-form {
+/* Heading Styling */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #0078d7;
+  font-weight: bold;
   margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: linear-gradient(90deg, #0078d7, #00c8d7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 1s ease-out;
 }
 
+/* Form Label Styling */
 label {
-  display: block;
+  font-size: 1.2rem;
   margin-bottom: 8px;
+  display: block;
+  color: #333;
+  font-weight: bold;
 }
 
+/* Input Field Styling */
 input[type="number"] {
+  padding: 12px;
   width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+  border: 2px solid #0078d7;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
-button[type="submit"] {
-  background-color: #4CAF50;
+/* Input Focus */
+input[type="number"]:focus {
+  border-color: #0056a3;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 120, 215, 0.5);
+}
+
+/* Button Styling */
+button {
+  padding: 12px 20px;
+  background-color: #0078d7;
   color: white;
-  padding: 10px 20px;
+  font-size: 1.2rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
-  box-sizing: border-box;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button[type="submit"]:hover {
-  background-color: #45a049;
+/* Button Hover Effect */
+button:hover {
+  background-color: #0056a3;
+  transform: translateY(-3px);
+}
+
+button:active {
+  transform: translateY(3px);
+}
+
+/* Orders Section Styling */
+h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
 }
 
 ul {
-  list-style-type: none;
-  padding: 0;
+  list-style: none;
+  padding-left: 0;
 }
 
-ul li {
-  background-color: #f9f9f9;
+li {
+  font-size: 1.1rem;
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  margin-bottom: 5px;
+  background: #f1f1f1;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
 }
 
-.no-products, .no-orders {
-  color: #d9534f;
+li:hover {
+  background: #e0e0e0;
+  cursor: pointer;
+}
+
+/* Error Message Styling */
+p {
+  color: #e74c3c;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #f8d7da;
+  border-left: 5px solid #e74c3c;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  div {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  input[type="number"],
+  button {
+    width: 100%;
+    padding: 10px;
+  }
+
+  li {
+    font-size: 1rem;
+    padding: 8px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
