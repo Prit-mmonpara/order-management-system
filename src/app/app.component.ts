@@ -1,12 +1,27 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { CalculateTotalRevenueComponent } from './calculate-total-revenue/calculate-total-revenue.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [RouterModule, CommonModule, CalculateTotalRevenueComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-app';
+  title = 'order-management-system';
+  showRevenue: boolean = false;
+  status: string = '';
+  totalRevenue: number = 0;
+
+  onClick() {
+    this.status = 'Delivered'; // Set the status to Delivered
+    this.showRevenue = !this.showRevenue; // Show the revenue component
+  }
+
+  handleRevenueCalculated(revenue: number) { 
+    this.totalRevenue = revenue; // Update totalRevenue in the parent component 
+  }
 }
