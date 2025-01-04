@@ -1,70 +1,189 @@
-/* Add your component-specific styles here */
-div {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Main Container Styling */
+.order-summary-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 1s ease-out;
+}
+
+.order-summary-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Heading Styling */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #4A90E2;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: linear-gradient(90deg, #4A90E2, #50E3C2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* Form Label Styling */
+label {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  display: block;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Input Field Styling */
+input[type="number"] {
+  padding: 12px;
+  width: 100%;
+  border: 2px solid #50E3C2;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* Input Focus Effect */
+input[type="number"]:focus {
+  border-color: #4A90E2;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
+}
+
+/* Button Styling */
+button {
+  padding: 12px 20px;
+  background-color: #50E3C2;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Button Hover Effect */
+button:hover {
+  background-color: #4A90E2;
+  transform: translateY(-3px);
+}
+
+button:active {
+  transform: translateY(3px);
+}
+
+/* Order Summary Styling */
+h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #4A90E2;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h4 {
+  margin-top: 20px;
+  color: #4A90E2;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+strong {
+  font-weight: bold;
+  color: #50E3C2;
+}
+
+/* Validation Result Section */
+.order-summary-container p {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* No order found message */
+p.no-order-found {
+  color: #D9534F;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Success/Error Feedback for Order Summary */
+.order-summary-container .feedback {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+}
+
+.order-summary-container .feedback.success {
+  color: #3C763D;
+  background-color: #DFF0D8;
+  border-left: 5px solid #3C763D;
+}
+
+.order-summary-container .feedback.error {
+  color: #D9534F;
+  background-color: #F2DEDE;
+  border-left: 5px solid #D9534F;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .order-summary-container {
+    padding: 20px;
   }
-  
-  h2, h3, h4, label, p {
-    color: #333;
+
+  h2 {
+    font-size: 1.6rem;
   }
-  
-  form {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 8px;
-  }
-  
-  input[type="number"] {
+
+  input[type="number"],
+  button {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    box-sizing: border-box;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #45a049;
-  }
-  
-  .order-summary {
-    background-color: #f9f9f9;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
   }
-  
-  .order-summary p, .order-summary ul {
-    margin: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
   }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  ul li {
-    background-color: #f9f9f9;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 5px;
-  }
-  
-  .no-order {
-    color: #d9534f;
-  }
-  
+}

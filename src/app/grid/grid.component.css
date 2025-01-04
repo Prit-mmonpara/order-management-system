@@ -1,46 +1,239 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Form and Container */
 div {
-    margin-bottom: 20px;
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #f5f5f5;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading Styling */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #0078d7;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: linear-gradient(90deg, #0078d7, #00c8d7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Animation for Fade-in Effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
   }
-  
-  input[type="number"] {
-    padding: 5px;
-    margin-right: 10px;
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
-  
+}
+
+/* Label Styling */
+label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: bold;
+}
+
+/* Select Dropdown Styling */
+select {
+  padding: 12px;
+  border: 2px solid #0078d7;
+  border-radius: 8px;
+  background: #ffffff;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+select:focus {
+  border-color: #0056a3;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 120, 215, 0.5);
+}
+
+/* Input Styling */
+input[type="text"] {
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #ffffff;
+  margin-top: 10px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #0078d7;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 120, 215, 0.5);
+}
+
+/* Button Styling */
+button {
+  background-color: #0078d7;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056a3;
+  transform: translateY(-3px);
+}
+
+button:active {
+  transform: translateY(3px);
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead {
+  background: #0078d7;
+  color: white;
+  font-weight: bold;
+}
+
+/* Prevent text color from changing to white on click */
+th,
+td {
+  padding: 12px 20px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Ensure th text remains readable */
+th {
+  background-color: #0078d7;
+  color: white;
+}
+
+th:hover {
+  background-color: #0056a3;
+}
+
+/* Adjust for focus and active states */
+th:focus {
+  background-color: #0056a3;
+  outline: none;
+  color: white;
+}
+
+th:active {
+  background-color: #003c6d;
+}
+
+td {
+  background-color: #ffffff;
+  color: #333;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Dynamic Search Result Styling */
+h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+tbody tr {
+  transition: background 0.3s ease;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Error Message Styling */
+.error {
+  color: #e74c3c;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px;
+  background: #f8d7da;
+  border-left: 5px solid #e74c3c;
+  margin-top: 15px;
+  animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  div {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  input[type="text"],
+  select,
   button {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  table {
     width: 100%;
-    border-collapse: collapse;
+    padding: 10px;
   }
-  
-  th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
+
+  table {
+    font-size: 0.9rem;
   }
-  
-  th {
-    background-color: #f4f4f4;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  tr:hover {
-    background-color: #f1f1f1;
-  }
-  
+}

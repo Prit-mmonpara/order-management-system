@@ -1,59 +1,178 @@
-/* Add your component-specific styles here */
-div {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Main Container */
+.bulk-update-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-out;
+}
+
+/* Header */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #4A90E2;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Form and Input Styling */
+label {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #333;
+  display: block;
+  font-weight: bold;
+}
+
+input[type="number"],
+input[type="text"] {
+  padding: 12px;
+  width: 100%;
+  border: 2px solid #50E3C2;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus {
+  border-color: #4A90E2;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
+}
+
+/* Add New Update Section */
+.add-update-section {
+  margin-top: 30px;
+}
+
+.add-update-btn {
+  background-color: #50E3C2;
+  padding: 12px 20px;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-update-btn:hover {
+  background-color: #4A90E2;
+  transform: translateY(-3px);
+}
+
+.add-update-btn:active {
+  transform: translateY(3px);
+}
+
+/* Submit Button */
+.submit-btn {
+  background-color: #50E3C2;
+  padding: 15px 20px;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #4A90E2;
+  transform: translateY(-3px);
+}
+
+.submit-btn:active {
+  transform: translateY(3px);
+}
+
+/* Updated Orders List */
+.updated-orders-list {
+  margin-top: 30px;
+}
+
+.order-item {
+  padding: 12px;
+  background-color: #F7F7F7;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.order-item p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Feedback Section */
+.feedback {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.feedback.success {
+  background-color: #DFF0D8;
+  color: #3C763D;
+  border-left: 5px solid #3C763D;
+}
+
+.feedback.error {
+  background-color: #F2DEDE;
+  color: #D9534F;
+  border-left: 5px solid #D9534F;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bulk-update-container {
+    padding: 20px;
   }
-  
-  h2, h3, label, p {
-    color: #333;
+
+  h2 {
+    font-size: 1.6rem;
   }
-  
-  form {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 8px;
-  }
-  
-  input[type="number"], input[type="text"] {
+
+  input[type="number"],
+  input[type="text"],
+  .submit-btn {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  button[type="submit"], button[type="button"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    box-sizing: border-box;
-  }
-  
-  button[type="submit"]:hover, button[type="button"]:hover {
-    background-color: #45a049;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  ul li {
-    background-color: #f9f9f9;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 5px;
   }
-  
-  .no-updates {
-    color: #d9534f;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
   }
-  
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

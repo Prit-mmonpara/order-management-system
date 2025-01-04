@@ -1,66 +1,228 @@
-/* Add some padding around the entire form container */
+/* Universal Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* General Container Styling */
 div {
-    padding: 20px;
-    max-width: 600px;
-    margin: auto;
+  margin: 20px auto;
+  padding: 25px;
+  max-width: 800px;
+  background: linear-gradient(to bottom right, #ffffff, #f1f1f1);
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Section Headings */
+div h2 {
+  text-align: center;
+  color: #0078d7;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: linear-gradient(90deg, #0078d7, #00c8d7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
   }
-  
-  /* Style the form headings */
-  h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 5px;
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  /* Style the form labels */
-  label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-    color: #007bff;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: slideIn 0.8s ease;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
   }
-  
-  /* Style the form inputs */
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Labels */
+label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.1);
+}
+
+/* Inputs */
+input[type="text"],
+input[type="number"],
+input[type="email"] {
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f9f9f9;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus {
+  border-color: #0078d7;
+  background: #ffffff;
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 120, 215, 0.5);
+}
+
+/* Dynamic Error/Success Messages */
+.error {
+  color: #d9534f;
+  font-size: 0.95rem;
+  font-weight: bold;
+  margin-top: -10px;
+  padding-left: 5px;
+  border-left: 3px solid #d9534f;
+  animation: shake 0.5s ease;
+}
+
+.success {
+  color: #5cb85c;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 15px;
+  padding: 5px;
+  background: #eaf8ea;
+  border: 2px solid #5cb85c;
+  border-radius: 5px;
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25%,
+  75% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
+
+/* Buttons */
+button {
+  background-color: #0078d7;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background: linear-gradient(90deg, #0056a3, #0078d7);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Buttons Inside Dynamic Sections */
+div[ngFor] button[type="button"] {
+  margin-top: 10px;
+  background-color: #dc3545;
+  color: white;
+}
+
+div[ngFor] button[type="button"]:hover {
+  background-color: #c82333;
+}
+
+/* Dynamic Form Sections */
+div[ngFor] {
+  padding: 15px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  border-radius: 10px;
+  animation: scaleIn 0.8s ease;
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Input Validation Feedback */
+input:invalid {
+  border-color: #d9534f;
+}
+
+input:invalid:focus {
+  box-shadow: 0 0 10px rgba(217, 83, 79, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  div {
+    padding: 15px;
+  }
+
+  div h2 {
+    font-size: 1.5rem;
+  }
+
   input[type="text"],
   input[type="number"],
   input[type="email"] {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+    font-size: 0.9rem;
+    padding: 10px;
   }
-  
-  /* Style the buttons */
+
   button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
+    font-size: 0.9rem;
   }
-  
-  /* Add hover effect to buttons */
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Style the form container */
-  form {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  /* Add some spacing between different form sections */
-  form + form {
-    margin-top: 30px;
-  }
-  
+}

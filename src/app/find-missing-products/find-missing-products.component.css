@@ -1,59 +1,165 @@
-/* Add your component-specific styles here */
-div {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Main Container Styling */
+.missing-products-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-out;
+}
+
+/* Heading Styling */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #4A90E2;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: linear-gradient(90deg, #4A90E2, #50E3C2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* Form Styling */
+label {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  display: block;
+  color: #333;
+  font-weight: bold;
+}
+
+input[type="number"] {
+  padding: 12px;
+  width: 100%;
+  border: 2px solid #50E3C2;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+input[type="number"]:focus {
+  border-color: #4A90E2;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #50E3C2;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #4A90E2;
+  transform: translateY(-3px);
+}
+
+button:active {
+  transform: translateY(3px);
+}
+
+/* Missing Products List */
+.missing-products-list {
+  margin-top: 30px;
+}
+
+.product-item {
+  padding: 15px;
+  background-color: #F7F7F7;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+strong {
+  color: #50E3C2;
+  font-weight: bold;
+}
+
+/* No Missing Products Message */
+.no-missing-products {
+  margin-top: 30px;
+  color: #D9534F;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Feedback Styles */
+.feedback {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.feedback.success {
+  background-color: #DFF0D8;
+  color: #3C763D;
+  border-left: 5px solid #3C763D;
+}
+
+.feedback.error {
+  background-color: #F2DEDE;
+  color: #D9534F;
+  border-left: 5px solid #D9534F;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .missing-products-container {
+    padding: 20px;
   }
-  
-  h2, h3, label, p {
-    color: #333;
+
+  h2 {
+    font-size: 1.6rem;
   }
-  
-  form {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 8px;
-  }
-  
-  input[type="number"] {
+
+  input[type="number"],
+  button {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    box-sizing: border-box;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #45a049;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  ul li {
-    background-color: #f9f9f9;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 5px;
   }
-  
-  .no-products {
-    color: #d9534f;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
   }
-  
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
